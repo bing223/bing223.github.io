@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+       *{
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+       }
+       body{
+           height: 100vh;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           background-color: rgb(15, 125, 199);
+           color: rgb(255, 255, 255);
+       }
+       .quan{
+           position: relative;
+           margin: 0 auto;
+           margin-bottom: 20px;
+           width: 60px;
+           height: 60px;
+       }
+       .dian{
+         position: absolute;
+         width: 100%;
+         height: 100%;
+         animation: zhuan 3.5s linear infinite;
+       }
+       .dian::after{
+           content: '';
+           position: absolute;
+           bottom: 0px;
+           left: 50%;
+           transform: translateX(-50%);
+           width: 6px;
+           height: 6px;
+           background-color: #fff;
+           border-radius: 50%;
+       }
+       .quan:nth-child(1){
+           animation-delay: 0s;
+       }
+       .quan div:nth-child(2){
+           animation-delay: 0.1s;
+        }
+        .quan div:nth-child(3){
+            animation-delay: 0.2s;
+        }
+        .quan div:nth-child(4){
+            animation-delay: 0.3s;
+        }
+        .quan div:nth-child(5){
+            animation-delay: 0.4s;
+        }
+
+       @keyframes zhuan{
+           0%{
+               transform: rotate(0deg);
+               opacity: 1;
+           }
+  
+          70%{
+            transform: rotate(540deg);
+          } 
+           79%{
+            opacity: 1;
+           }
+           80%{
+            transform: rotate(720deg);
+            opacity: 0;
+           }
+           100%{
+               transform: rotate(810deg);
+               opacity: 0;
+           }
+       }
+    </style>
+</head>
+<body>
+         <div class="yongqi">
+         <div class="quan">
+         <div class="dian"></div>
+         <div class="dian"></div>
+         <div class="dian"></div>
+         <div class="dian"></div>
+         <div class="dian"></div>       
+       </div>
+       <p>正在加载</p>
+   </div>
+</body>
+    <script>
+        var time=3;
+        // 查找节点（标签）
+        var number=document.getElementsByClassName('number')[0];
+        var b=document.getElementsByClassName('b')[0];
+        
+        //利用定时器 
+        window.setInterval(function(){
+            // 判断描述是否为0，若为0,页面跳转
+            if(time==0){
+                location.href='index.html';
+            }
+            else{
+                --time;
+                number.innerText=time;
+                b.innerText=time;
+            }
+        },1000)
+	</script>
+</html>
